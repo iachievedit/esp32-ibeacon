@@ -27,6 +27,9 @@ SOFTWARE.
 #include <BLEUtils.h>
 #include <BLEBeacon.h>
 
+#define SWITCH_PIN 21
+#define LED_PIN 14
+
 // https://support.kontakt.io/hc/en-gb/articles/4413251561106-iBeacon-packets
 
 #define BEACON_UUID     "bf707dd7-a3c3-4a4b-b98b-88c175b7d730"
@@ -63,6 +66,10 @@ void setup() {
   pAdvertising = BLEDevice::getAdvertising();
   pAdvertising->setAdvertisementData(advertisementData);
 
+  pinMode(SWITCH_PIN, INPUT);
+  pinMode(LED_PIN, OUTPUT);
+  digitalWrite(LED_PIN, LOW);
+
 
 }
 
@@ -70,17 +77,20 @@ void loop() {
 
   static bool advertising = false;
 
-  int button = digitalRead(21);
+  int button = digitalRead(SWITCH_PIN);
 
   if (button) {
     if (advertising) {
       advertising = false;
       pAdvertising->stop();
       Serial.println("Advertising stopped...it may take up to 45 seconds for devices to exit");
+
+      digitalWrite(LED_PIN, LOW);
     } else {
       advertising = true;
       pAdvertising->start();
       Serial.println("Advertising started...");
+      digitalWrite(LED_PIN, HIGH);
     }
   }
 
