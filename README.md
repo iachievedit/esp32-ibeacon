@@ -2,6 +2,17 @@
 
 A basic iBeacon implementation using an ESP32 and the standard Arduino framework.  _In particular_, I'm using an [Adafruit HUZZAH32 ESP32 Feather Board](https://www.adafruit.com/product/3405).
 
+## Circuit
+
+The code interacts with Pin 21 and Pin 14 of the HUZZAH32 feather.  In particular:
+
+* Pin 21 reads HIGH when the push button is pressed (this version doesn't include a debouncing circuit) and the beacon advertising is turned on or off.
+* Pin 14 is driven HIGH when the beacon is advertising.
+
+220 Ohm resistors are used.
+
+![](circuit.png)
+
 ## Building and Uploading
 
 This application uses [PlatformIO](https://platformio.org/) to build and upload and is typically accessed in Visual Studio Code, but you can use the commandline `platformio run`:
