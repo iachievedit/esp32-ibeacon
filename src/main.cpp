@@ -70,7 +70,6 @@ void setup() {
   pinMode(LED_PIN, OUTPUT);
   digitalWrite(LED_PIN, LOW);
 
-
 }
 
 void loop() {
@@ -94,6 +93,6 @@ void loop() {
     }
   }
 
-  delay(250);
+  delay(200);
   
 }
