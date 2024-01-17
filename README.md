@@ -1,10 +1,10 @@
-# esp32-beacon
+# esp32-ibeacon
 
 A basic iBeacon implementation using an ESP32 and the standard Arduino framework.  _In particular_, I'm using an [Adafruit HUZZAH32 ESP32 Feather Board](https://www.adafruit.com/product/3405).
 
-## Building and Running
+## Building and Uploading
 
-This application uses [PlatformIO](https://platformio.org/) to build and upload, but you can use the commandline `platformio run`:
+This application uses [PlatformIO](https://platformio.org/) to build and upload and is typically accessed in Visual Studio Code, but you can use the commandline `platformio run`:
 
 ```
 esp32-ibeacon % platformio run
@@ -149,3 +149,7 @@ Leaving...
 Hard resetting via RTS pin...
 ================================================================= [SUCCESS] Took 29.44 seconds =================================================================
 ```
+
+## Running
+
+TODO 🙃
